@@ -37,6 +37,7 @@ def readPathwayInformation(pathwayfile, sources, destinations, outputpathwayfile
 
 			# print out to a file
 			fo.write("%s\t(%d->%d)\t%s\n" % (pathwayname, len(genes), len(inputdata[pathwayname]), '\t'.join(inputdata[pathwayname])))
+
 			# collect all proteins in pathways
 			allpathwayproteins += inputdata[pathwayname]
 
@@ -48,7 +49,7 @@ def readPathwayInformation(pathwayfile, sources, destinations, outputpathwayfile
 # calculate group centrality for each pathway and print out the results to a file
 def calculateGroupCentrality(inputdata, centrality, numpairs, outputfile):
 	with open(outputfile, 'w') as fo:
-		fo.write("#pathway\t#num_genes\t#num_pairs\t#sum_fractional_group_centrality\t#averaged_fractional_group_centrality\n")
+		fo.write("#pathway\t#num_genes\t#num_pairs\t#sum_fractional_group_centrality\t#averaged_fractional_group_centrality\t#genes\n")
 	
 		for pathway in inputdata.keys():
 			# set of genes in a pathway
@@ -65,7 +66,7 @@ def calculateGroupCentrality(inputdata, centrality, numpairs, outputfile):
 			else:
 				averagedNumShortestPaths = sumFractionalCentrality / float(numGenes)
 			
-			fo.write("%s\t%d\t%d\t%f\t%f\n" % (pathway, numGenes, numpairs, sumFractionalCentrality, averagedNumShortestPaths))
+			fo.write("%s\t%d\t%d\t%f\t%f\n" % (pathway, numGenes, numpairs, sumFractionalCentrality, averagedNumShortestPaths, ', '.join(inputdata[pathway]))
 
 
 # main function

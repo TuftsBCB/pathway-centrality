@@ -14,10 +14,9 @@ from time import gmtime, strftime
 # argument list
 # 1) network file
 # 2) shortest paths file
-# 3) pathway protein file
-# 4) group centrality file
-# 5) output file
-# 6) number of trials
+# 3) group centrality file
+# 4) output file
+# 5) number of trials
 
 # group centrality
 # = sum of centrality score (varies depending on measurement) of all members of a set with a certain property

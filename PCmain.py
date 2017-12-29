@@ -41,7 +41,7 @@ def main():
 	if not os.path.exists(outputdir):
     		os.makedirs(outputdir)
 
-	'''
+
         # read input files 1: disease genes and differentially expressed genes
         # create three new files in output directory: pc_disease_genes.txt, pc_diff_exp_genes.txt, pc_overlapping_genes.txt 
 	# pc_disease_genes.txt: filtered disease gene set --- differentially expressed genes removed
@@ -59,13 +59,13 @@ def main():
 	# calculate shortest paths between disease genes and differentially expressed genes
 	# create one new file in output directory: pc_shortest_paths.txt
 	# pc_shortest_paths.txt: all possible shortest paths between disease genes and differentially expressed genes in the claulcated largest connected component
-	'''
+
 	nwfile = outputdir + "/pc_network_lcc.txt"
-	'''
+
 	diseasegenefile = outputdir + "/pc_disease_genes.txt"
 	diffexpgenefile = outputdir + "/pc_diff_exp_genes.txt"
 	sp.calculateShortestPaths(nwfile, diseasegenefile, diffexpgenefile, outputdir)
-	'''
+
 
 	# calculate pathway centrality score for input pathway gene sets
 	# calculatePC.py
