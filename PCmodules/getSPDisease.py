@@ -81,7 +81,17 @@ def calculateShortestPaths(networkfile, diseasegenefile, diffexpressedgenefile, 
 		elif n in diffgeneset:
 			diffGenes.append(n)
 	
-
+	
+	# Terminate the program if there is no disease gene or differentially expressed gene found in the input network.#####
+	if len(diseaseGenes) == 0:
+		print("None of the disease genes is in the input network")
+		sys.exit(1)
+	
+	if len(diffGenes) == 0:
+		print("None of the disease genes is in the input network")
+		sys.exit(1)
+	######################################################################################################################
+		
         # identify disease genes and differentially expressed genes that are not in the input network and record it out a file
 	with open(sp_logfile_disease, 'w') as fo:
 		fo.write("\n".join([x for x in diseasegeneset if x not in diseaseGenes]))
