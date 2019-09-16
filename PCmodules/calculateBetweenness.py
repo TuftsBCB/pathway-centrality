@@ -77,6 +77,10 @@ def calculateBetweenness(allPathwayProteins, numShortestPaths, shortestPaths):
                         if totalNumShortestPaths != 0:
                                 sumFractionalCentrality += float(sumNumShortestPaths[pair]) / float(numShortestPaths[pair])
 
+                # At least one shortest path should exist to calculate Pathway Centrality. ################################
+                assert len(numShortestPaths.keys()) > 0, "No shortest path found between two input gene sets: check if the input genes are in input PPI networks."  
+                ###########################################################################################################
+                
                 betweenness[gene] = sumFractionalCentrality / float(len(numShortestPaths.keys()))
 
         return betweenness
