@@ -88,7 +88,7 @@ def calculateShortestPaths(networkfile, diseasegenefile, diffexpressedgenefile, 
 		sys.exit(1)
 	
 	if len(diffGenes) == 0:
-		print("None of the disease genes is in the input network")
+		print("None of the differentially expressed genes is in the input network")
 		sys.exit(1)
 	######################################################################################################################
 		
